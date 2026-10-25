@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ufnjj0hrm67s"]
+
+[ext_resource type="Script" uid="uid://dl7glamkwcin8" path="res://mob.gd" id="1_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://4w7r8g6qn5v3" path="res://tinyjgart/Bfootsteps.png" id="1_b3mxk"]
+[ext_resource type="Texture2D" uid="uid://hasqwyl04ksw" path="res://tinyjgart/Bfootsteps2.png" id="2_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://cifh8vsi2qnfx" path="res://tinyjgart/Gfootsteps.png" id="3_gfurk"]
+[ext_resource type="Texture2D" uid="uid://ds8yv3rqu76po" path="res://tinyjgart/Gfootsteps2.png" id="4_ieysi"]
+[ext_resource type="Texture2D" uid="uid://ciito41r5gyjs" path="res://tinyjgart/Footsteps.png" id="5_cixyi"]
+[ext_resource type="Texture2D" uid="uid://b5ub6apw8padl" path="res://tinyjgart/Rfootsteps.png" id="6_7ulmv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7snj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b3mxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1qmh0")
+}],
+"loop": 1,
+"name": &"blueS",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gfurk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ieysi")
+}],
+"loop": 1,
+"name": &"greenW",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cixyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7ulmv")
+}],
+"loop": 1,
+"name": &"redF",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yscv0"]
+radius = 63.0
+height = 160.0
+
+[node name="Mob" type="RigidBody2D" unique_id=844015461]
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource("1_1qmh0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=84185658]
+position = Vector2(-5, -50)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_e7snj")
+animation = &"blueS"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1997194966]
+position = Vector2(-4, -61)
+shape = SubResource("CapsuleShape2D_yscv0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1423613409]
